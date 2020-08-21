@@ -5,10 +5,10 @@ import {
 
 const releaseUrl =
   "https://github.com/justjavac/deno_num_cpus/releases/download";
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.2";
 
 const pluginOptions: PerpareOptions = {
-  name: "test_plugin",
+  name: "deno_num_cpus",
   urls: {
     linux: `${releaseUrl}/libdeno_num_cpus.so`,
     darwin: `${releaseUrl}/libdeno_num_cpus.dylib`,
