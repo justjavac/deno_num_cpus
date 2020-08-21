@@ -1,6 +1,6 @@
 [package]
 name = "deno_num_cpus"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["迷渡 <justjavac@gmail.com>"]
 edition = "2018"
 
@@ -10,3 +10,8 @@ crate-type = ["cdylib"]
 [dependencies]
 deno_core = "0.53.0"
 num_cpus = "1.13.0"
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
