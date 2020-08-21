@@ -19,6 +19,12 @@ num_cpus();
 // => 8
 ```
 
+run example:
+
+```shell
+deno run --unstable --allow-plugin "https://deno.land/x/num_cpus/example.ts"
+```
+
 ## Flags
 
 - `--unstable`
