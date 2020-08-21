@@ -16,7 +16,7 @@ const pluginOptions: PerpareOptions = {
   },
 };
 
-let pluginId: number | null;
+let pluginId: number | null = null;
 
 /**
  * Load the plugin
