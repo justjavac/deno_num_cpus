@@ -1,4 +1,4 @@
-import num_cpus from "https://deno.land/x/num_cpus/mod.ts";
+import num_cpus from "./mod.ts";
 
 const nums = num_cpus();
 console.log(nums);

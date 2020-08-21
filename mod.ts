@@ -3,9 +3,9 @@ import {
   PerpareOptions,
 } from "https://deno.land/x/plugin_prepare/mod.ts";
 
-const releaseUrl =
-  "https://github.com/justjavac/deno_num_cpus/releases/download";
 export const VERSION = "0.1.2";
+const releaseUrl =
+  `https://github.com/justjavac/deno_num_cpus/releases/download/${VERSION}`;
 
 const pluginOptions: PerpareOptions = {
   name: "deno_num_cpus",
