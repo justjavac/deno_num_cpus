@@ -60,7 +60,6 @@ jobs:
         # the workspace dir to be saved/restored incorrectly.
         run: echo "::set-env name=CARGO_HOME::$(pwd)/.cargo_home"
 
-
       - name: Cache
         uses: actions/cache@v2
         with:
