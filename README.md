@@ -13,7 +13,7 @@ This information can be used as a guide to how many tasks can be run in parallel
 ## Usage
 
 ```ts
-import num_cpus from "https://deno.land/x/num_cpus/color.ts";
+import num_cpus from "https://deno.land/x/num_cpus/mod.ts";
 
 num_cpus();
 // => 8
