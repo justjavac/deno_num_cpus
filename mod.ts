@@ -3,16 +3,16 @@ import {
   PerpareOptions,
 } from "https://deno.land/x/plugin_prepare/mod.ts";
 
-export const VERSION = "v0.1.5";
+export const PLUGIN_VERSION = "v0.1.1";
 const releaseUrl =
-  `https://github.com/justjavac/deno_num_cpus/releases/download/${VERSION}`;
+  `https://github.com/justjavac/deno_plugin_num_cpus/releases/download/${PLUGIN_VERSION}`;
 
 const pluginOptions: PerpareOptions = {
-  name: "deno_num_cpus",
+  name: "deno_plugin_num_cpus",
   urls: {
-    linux: `${releaseUrl}/libdeno_num_cpus.so`,
-    darwin: `${releaseUrl}/libdeno_num_cpus.dylib`,
-    windows: `${releaseUrl}/deno_num_cpus.dll`,
+    linux: `${releaseUrl}/libdeno_plugin_num_cpus.so`,
+    darwin: `${releaseUrl}/libdeno_plugin_num_cpus.dylib`,
+    windows: `${releaseUrl}/deno_plugin_num_cpus.dll`,
   },
 };
 
@@ -37,21 +37,18 @@ function unload(): void {
 /**
  * Get the number of CPUs available on the current system.
  * 
- * Sometimes the CPU will exaggerate the number of CPUs it contains, because it
- * can use [processor tricks](https://en.wikipedia.org/wiki/Simultaneous_multithreading)
- * to deliver increased performance when there are more threads. 
- * This crate provides methods to get both the logical and physical numbers of cores.
+ * ## Example
  * 
- * This information can be used as a guide to how many tasks can be run in parallel.
- * There are many properties of the system architecture that will affect parallelism,
- * for example memory access speeds (for all the caches and RAM) and the physical
- * architecture of the processor, so the number of CPUs should be used as a rough guide only.
+ * ```ts
+ * ```
  */
 export default function num_cpus(): number {
+  // deno-lint-ignore ban-ts-comment
   //@ts-ignore
-  const { num_cpus } = Deno.core.ops();
+  const { op_num_cpus } = Deno.core.ops();
+  // deno-lint-ignore ban-ts-comment
   //@ts-ignore
-  const response = Deno.core.dispatch(num_cpus)!;
+  const response: Uint8Array = Deno.core.dispatch(op_num_cpus)!;
   return response[0];
 }
 

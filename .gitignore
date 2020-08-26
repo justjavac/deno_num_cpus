@@ -4,5 +4,4 @@
 *bak
 .history
 .temp/**
-/target
 /.deno_plugins
