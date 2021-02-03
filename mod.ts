@@ -1,13 +1,13 @@
 import {
   prepare,
-  PerpareOptions,
+  PrepareOptions,
 } from "https://deno.land/x/plugin_prepare/mod.ts";
 
 export const PLUGIN_VERSION = "v0.1.1";
 const releaseUrl =
   `https://github.com/justjavac/deno_plugin_num_cpus/releases/download/${PLUGIN_VERSION}`;
 
-const pluginOptions: PerpareOptions = {
+const pluginOptions: PrepareOptions = {
   name: "deno_plugin_num_cpus",
   urls: {
     linux: `${releaseUrl}/libdeno_plugin_num_cpus.so`,
