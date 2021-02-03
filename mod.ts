@@ -1,6 +1,6 @@
 import {
   prepare,
-  PerpareOptions,
+  PrepareOptions,
 } from "https://deno.land/x/plugin_prepare/mod.ts";
 
 export const PLUGIN_VERSION = "v0.1.1";
