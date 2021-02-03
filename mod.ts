@@ -1,13 +1,10 @@
-import {
-  prepare,
-  PrepareOptions,
-} from "https://deno.land/x/plugin_prepare/mod.ts";
+import { Plug } from "https://deno.land/x/plug/mod.ts";
 
 export const PLUGIN_VERSION = "v0.1.1";
 const releaseUrl =
   `https://github.com/justjavac/deno_plugin_num_cpus/releases/download/${PLUGIN_VERSION}`;
 
-const pluginOptions: PrepareOptions = {
+const options: Plug.Options = {
   name: "deno_plugin_num_cpus",
   urls: {
     linux: `${releaseUrl}/libdeno_plugin_num_cpus.so`,
@@ -23,7 +20,7 @@ let pluginId: number | null = null;
  */
 async function load() {
   unload();
-  pluginId = await prepare(pluginOptions);
+  pluginId = await Plug.prepare(options);
 }
 
 /**
@@ -42,13 +39,13 @@ function unload(): void {
  * ```ts
  * ```
  */
-export default function num_cpus(): number {
+export default function numCpus(): number {
   // deno-lint-ignore ban-ts-comment
   //@ts-ignore
-  const { op_num_cpus } = Deno.core.ops();
+  const { op_num_cpus: opNumCpus } = Deno.core.ops();
   // deno-lint-ignore ban-ts-comment
   //@ts-ignore
-  const response: Uint8Array = Deno.core.dispatch(op_num_cpus)!;
+  const response: Uint8Array = Deno.core.dispatch(opNumCpus)!;
   return response[0];
 }
 

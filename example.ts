@@ -1,4 +1,4 @@
-import num_cpus from "./mod.ts";
+import numCpus from "./mod.ts";
 
-const nums = num_cpus();
+const nums = numCpus();
 console.log(nums);
